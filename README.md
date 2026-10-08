@@ -1,34 +1,31 @@
 # Ultra FPS Launcher
 
-This repository contains a starter Android launcher app for a Minecraft launcher focused on FPS-friendly settings, profile management, and modloader support.
+This repository is a starter Android launcher project for a Minecraft launcher designed around FPS-friendly tuning, profile management, and modloader support.
 
-What is included:
-- Modern Android UI built with Jetpack Compose
-- Profile cards for Fabric, Forge, Quilt, NeoForge, and vanilla installs
-- Version catalog covering multiple Minecraft releases
-- Basic launcher screen with launch controls and performance tags
-- Clean project structure for expanding into a real Android launcher integration
+Included features:
+- Modern Android launcher UI built with Jetpack Compose
+- Minecraft profile cards for Vanilla, Fabric, Forge, Quilt, and NeoForge style support
+- Advanced launcher home screen with performance stats and launch actions
+- Profile management controls and settings panel
+- Flexible architecture using a ViewModel and repository pattern
+- Compatibility-ready foundation for versions such as 1.8.9, 1.12.2, 1.16.5, 1.20.1, 1.21.x
 
-Current status:
-- This is a foundation project and not a complete Minecraft runtime launcher.
-- It is designed as a usable UI skeleton and architecture starting point.
-- Full runtime install, Java management, game launch, and modloader-specific packaging still need real integrations for production use.
+Project overview:
+- `app/src/main/java/com/ultrafps/launcher` — launcher UI, models, and logic
+- `app/src/main/res` — Android resources and manifest
+- Gradle config — Android build setup ready for Android Studio
 
-Project layout:
-- `app/src/main/java/com/ultrafps/launcher` — app source
-- `app/src/main/res` — resources, XML, and manifest
-- `build.gradle.kts` / `settings.gradle.kts` — Gradle setup
+Key files:
+- `MainActivity.kt` — app entry point
+- `LauncherScreen.kt` — home, profiles, and settings UI
+- `LauncherViewModel.kt` — state management for profiles and settings
+- `LauncherModels.kt` — core launcher models and data classes
+- `ProfileRepository.kt` — starter profile and settings data
 
-How to open:
-1. Install Android Studio Ladybug or newer
-2. Open the repository folder
-3. Let Gradle sync
-4. Build and run on a physical Android device or emulator
+How to run:
+1. Open the repository in Android Studio
+2. Sync Gradle
+3. Build and run on an Android emulator or physical device
 
-Recommended next steps:
-- Add a real Java runtime selector and local install detection
-- Implement modloader-specific installation logic for Fabric/Forge/Quilt/NeoForge
-- Add profile management, version JSON parsing, and the actual game launch pipeline
-- Add safe APK packaging rules and app permissions for local game data access
-
-This repository intentionally provides a strong starting point without claiming to ship a licensed Minecraft launcher or game client.
+Important note:
+This is a launcher app skeleton, not a fully licensed or production-ready Minecraft game client. It provides the project layout and UI foundation for further gameplay and modloader integration.

@@ -1,8 +1,10 @@
 package com.ultrafps.launcher.data
 
 import com.ultrafps.launcher.model.JavaRuntime
+import com.ultrafps.launcher.model.LauncherSettings
 import com.ultrafps.launcher.model.MinecraftProfile
 import com.ultrafps.launcher.model.ModLoader
+import com.ultrafps.launcher.model.PerformanceMode
 
 class ProfileRepository {
     fun getDefaultProfiles(): List<MinecraftProfile> = listOf(
@@ -14,6 +16,7 @@ class ProfileRepository {
             javaRuntime = JavaRuntime.AUTO,
             installPath = "/storage/emulated/0/games/minecraft/fabric",
             isFavorite = true,
+            performanceMode = PerformanceMode.ULTRA,
             description = "Low-latency Fabric profile focused on smooth frame pacing"
         ),
         MinecraftProfile(
@@ -23,6 +26,7 @@ class ProfileRepository {
             loader = ModLoader.QUILT,
             javaRuntime = JavaRuntime.JRE_21,
             installPath = "/storage/emulated/0/games/minecraft/quilt",
+            performanceMode = PerformanceMode.HIGH,
             description = "Modern Quilt setup for high-performance builds"
         ),
         MinecraftProfile(
@@ -32,6 +36,7 @@ class ProfileRepository {
             loader = ModLoader.FORGE,
             javaRuntime = JavaRuntime.JRE_17,
             installPath = "/storage/emulated/0/games/minecraft/forge",
+            performanceMode = PerformanceMode.BALANCED,
             description = "Classic Forge support for older modpacks"
         ),
         MinecraftProfile(
@@ -41,7 +46,18 @@ class ProfileRepository {
             loader = ModLoader.VANILLA,
             installPath = "/storage/emulated/0/games/minecraft/vanilla",
             isEnabled = true,
+            performanceMode = PerformanceMode.ULTRA,
             description = "Stock experience tuned for clean rendering and fast startup"
         )
+    )
+
+    fun getDefaultSettings(): LauncherSettings = LauncherSettings(
+        performanceMode = PerformanceMode.ULTRA,
+        memoryMb = 4096,
+        useAutoJava = true,
+        enableVsync = false,
+        enableLowLatency = true,
+        enableOptimizedRendering = true,
+        maxFps = 240
     )
 }

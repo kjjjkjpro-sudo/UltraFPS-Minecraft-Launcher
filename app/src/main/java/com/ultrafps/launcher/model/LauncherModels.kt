@@ -16,6 +16,13 @@ enum class JavaRuntime {
     JRE_21
 }
 
+enum class PerformanceMode {
+    ULTRA,
+    HIGH,
+    BALANCED,
+    LOW_POWER
+}
+
 data class MinecraftProfile(
     val id: String,
     val name: String,
@@ -25,7 +32,18 @@ data class MinecraftProfile(
     val installPath: String,
     val isFavorite: Boolean = false,
     val isEnabled: Boolean = true,
-    val description: String = "Optimized profile for smooth gameplay"
+    val description: String = "Optimized profile for smooth gameplay",
+    val performanceMode: PerformanceMode = PerformanceMode.ULTRA
+)
+
+data class LauncherSettings(
+    val performanceMode: PerformanceMode = PerformanceMode.ULTRA,
+    val memoryMb: Int = 4096,
+    val useAutoJava: Boolean = true,
+    val enableVsync: Boolean = false,
+    val enableLowLatency: Boolean = true,
+    val enableOptimizedRendering: Boolean = true,
+    val maxFps: Int = 240
 )
 
 object LauncherCatalog {
@@ -52,5 +70,12 @@ object LauncherCatalog {
         ModLoader.NEO_FORGE,
         ModLoader.OPTIFINE,
         ModLoader.CUSTOM
+    )
+
+    fun performanceModes(): List<PerformanceMode> = listOf(
+        PerformanceMode.ULTRA,
+        PerformanceMode.HIGH,
+        PerformanceMode.BALANCED,
+        PerformanceMode.LOW_POWER
     )
 }
